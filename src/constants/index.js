@@ -16,8 +16,8 @@ export const COLOR_CODES = {
     primary: '#3E47FF',
     darkGray: "#282828",
     white: "#FFFFFF",
-    cyan: "#00ffff",
     border: "#515151",
     lightGray: "#a1a1a1",
     black: "#000000",
+    green: "#1f7039"
 };

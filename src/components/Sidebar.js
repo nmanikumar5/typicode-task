@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { SidebarData } from "./SidebarData";
 import SubMenu from "./SideMenu";
-import { IconContext } from "react-icons/lib";
 import { useSelector } from "react-redux";
 import isEmpty from 'lodash/isEmpty';
 import { COLOR_CODES } from '../constants'
@@ -50,22 +49,18 @@ const Sidebar = () => {
 
     return (
         <>
-            <IconContext.Provider value={{ color: "#fff" }}>
-                <Nav>
-                    <h1 style={{
-                        textAlign: "center",
-                        marginLeft: 250,
-                        color: COLOR_CODES.primary
-                    }}>
-                        Hubilo
-		            </h1>
-                </Nav>
-                <SidebarNav>
-                    <SidebarWrap>
-                        {updSidebarData.map((item, index) => <SubMenu item={item} key={`side-menu-${index}`} />)}
-                    </SidebarWrap>
-                </SidebarNav>
-            </IconContext.Provider>
+            <Nav>
+                <h1 style={{
+                    textAlign: "center",
+                    marginLeft: 300,
+                    color: COLOR_CODES.primary
+                }}>Hubilo</h1>
+            </Nav>
+            <SidebarNav>
+                <SidebarWrap>
+                    {updSidebarData.map((item, index) => <SubMenu item={item} key={`side-menu-${index}`} />)}
+                </SidebarWrap>
+            </SidebarNav>
         </>
     );
 };

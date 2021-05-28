@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUsers } from "../../actions";
 import { Table } from '../../components/common';
+import isEmpty from 'lodash/isEmpty'
 
 const tdHeads = {
     "Name": {
@@ -27,9 +28,10 @@ const Users = () => {
             <div className="home">
                 <h1>Users {users.length}</h1>
             </div>
-            <div className="home">
-                <Table tdHeads={tdHeads} data={users.slice(0, 10)} />
-            </div>
+            {!isEmpty(users) &&
+                (<div className="home">
+                    <Table tdHeads={tdHeads} data={users.slice(0, 10)} />
+                </div>)}
         </>
     );
 };

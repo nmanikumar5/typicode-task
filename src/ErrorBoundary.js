@@ -1,5 +1,4 @@
 import React from "react";
-import { ToastContainer, toast } from 'react-toastify';
 
 class ErrorBoundary extends React.Component {
     constructor(props) {
@@ -14,7 +13,6 @@ class ErrorBoundary extends React.Component {
 
     componentDidCatch(error, errorInfo) {
         // You can also log the error to an error reporting service
-        toast.error("Error: ", error)
         console.log('Error: ', error)
     }
 

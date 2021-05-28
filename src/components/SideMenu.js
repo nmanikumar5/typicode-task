@@ -26,6 +26,21 @@ const SidebarLabel = styled.span`
 margin-left: 16px;
 `;
 
+const DataCount = styled.span`
+margin-left: 16px;
+background: ${COLOR_CODES.green};
+border-radius: 0.8em;
+-moz-border-radius: 0.8em;
+-webkit-border-radius: 0.8em;
+color: #ffffff;
+display: inline-block;
+line-height: 1.6em;
+margin-right: 5px;
+text-align: center;
+width: 40px;
+font-size: 14px;
+`;
+
 const DropdownLink = styled(Link)`
 background: #252831;
 height: 60px;
@@ -56,8 +71,8 @@ const SubMenu = ({ item }) => {
                 selected={window.location.pathname === item.path}>
                 <div>
                     {item.icon}
-                    <SidebarLabel>{item.title}</SidebarLabel>
-                    {!item.subNav && <SidebarLabel>{item?.count}</SidebarLabel>}
+                    <SidebarLabel>{item.title} {!item.subNav && <DataCount>{item?.count}</DataCount>}</SidebarLabel>
+
                 </div>
                 <div>
                     {item.subNav && subnav
@@ -76,8 +91,7 @@ const SubMenu = ({ item }) => {
                             key={`drop - down - link - ${index} `}
                             disabled={!item.enabled}>
                             {item.icon}
-                            <SidebarLabel>{item.title}</SidebarLabel>
-                            <SidebarLabel>{item?.count}</SidebarLabel>
+                            <SidebarLabel>{item.title} <DataCount>{item?.count}</DataCount></SidebarLabel>
                         </DropdownLink>
                     );
                 })}

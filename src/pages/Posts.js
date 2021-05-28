@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getPosts, addPost } from '../actions';
 import { H_LABELS } from '../constants'
 import { Button, Table } from './../components/common';
+import isEmpty from 'lodash/isEmpty'
 
 const tdHeads = {
     "Title": {
@@ -27,9 +28,10 @@ const Posts = () => {
         <div className="posts-add-post" style={{ width: 250 }} >
             <Button onClick={() => addPost(posts, dispatch)}>{H_LABELS.ADD_POST}</Button>
         </div>
-        <div className="posts">
-            <Table tdHeads={tdHeads} data={posts.slice(0, 10)} />
-        </div>
+        {!isEmpty(posts) &&
+            (<div className="posts">
+                <Table tdHeads={tdHeads} data={posts.slice(0, 10)} />
+            </div>)}
     </>
     );
 };
