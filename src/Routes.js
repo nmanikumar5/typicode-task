@@ -1,32 +1,37 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import Sidebar from "./components/Sidebar";
 import PageNotFound from "./components/PageNotFound";
 import Message from './components/Message'
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { Users, Todos } from "./pages/user-todos";
-import { Albums, Posts, Home } from "./pages";
 import { useSelector } from "react-redux";
 import MessageContext from './context/MessageContext';
 import isEmpty from 'lodash/isEmpty';
+const Home = React.lazy(() => import( /* webpackChunkName: "Home" */ './pages/Home'));
+const Posts = React.lazy(() => import( /* webpackChunkName: "Posts" */ './pages/Posts'));
+const Albums = React.lazy(() => import( /* webpackChunkName: "Albums" */ './pages/Albums'));
+const Users = React.lazy(() => import( /* webpackChunkName: "Users" */ './pages/user-todos/Users'));
+const Todos = React.lazy(() => import( /* webpackChunkName: "Todos" */ './pages/user-todos/Todos'));
 
 const Routes = () => {
     const { isError, message } = useSelector(state => state.dataReducer);
 
     return (
-        <MessageContext.Provider value={{ message, isError }}>
-            <Router>
-                <Sidebar />
-                {!isEmpty(message) && <Message />}
-                <Switch>
-                    <Route path="/" exact component={Home} />
-                    <Route path="/posts" exact component={Posts} />
-                    <Route path="/albums" exact component={Albums} />
-                    <Route path="/user-todos/users" exact component={Users} />
-                    <Route path="/user-todos/todos" exact component={Todos} />
-                    <Route component={PageNotFound} />
-                </Switch>
-            </Router >
-        </MessageContext.Provider>
+        <Suspense fallback={<div className="home">Loading....</div>}>
+            <MessageContext.Provider value={{ message, isError }}>
+                <Router>
+                    <Sidebar />
+                    {!isEmpty(message) && <Message />}
+                    <Switch>
+                        <Route path="/" exact component={Home} />
+                        <Route path="/posts" exact component={Posts} />
+                        <Route path="/albums" exact component={Albums} />
+                        <Route path="/user-todos/users" exact component={Users} />
+                        <Route path="/user-todos/todos" exact component={Todos} />
+                        <Route component={PageNotFound} />
+                    </Switch>
+                </Router >
+            </MessageContext.Provider>
+        </Suspense>
     )
 }
 
