@@ -55,7 +55,7 @@ font-size: 18px;
 	cursor: pointer;
 }
 background: ${({ selected }) => (selected ? `${COLOR_CODES.primary}` : "transparent")};
-pointer - events: ${({ disabled }) => (disabled ? "none" : "auto")}
+pointer-events: ${({ disabled }) => (disabled ? "none" : "auto")}
 `;
 
 const SubMenu = ({ item }) => {
@@ -88,7 +88,7 @@ const SubMenu = ({ item }) => {
                         <DropdownLink
                             to={item.path}
                             selected={window.location.pathname === item.path}
-                            key={`drop - down - link - ${index} `}
+                            key={`drop-down-link-${index}`}
                             disabled={!item.enabled}>
                             {item.icon}
                             <SidebarLabel>{item.title} <DataCount>{item?.count}</DataCount></SidebarLabel>

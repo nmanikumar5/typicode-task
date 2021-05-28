@@ -47,6 +47,8 @@ const Sidebar = () => {
         return eachItem;
     });
 
+    console.log('updSidebarData: ', updSidebarData)
+
     return (
         <>
             <Nav>
