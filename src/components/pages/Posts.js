@@ -48,6 +48,30 @@ const Posts = () => {
         }
     }, [pageNumber])
 
+
+    /* Below is the code, 
+       to send the request when page changes for lazy loading
+    */
+    // useEffect(() => {
+    //     setLoading(true)
+    //     let cancel
+    //     axios({
+    //         method: 'GET',
+    //         url: 'https://jsonplaceholder.typicode.com/posts',
+    //         params: { _page: pageNumber, _limit: 10 },
+    //         cancelToken: new axios.CancelToken(c => cancel = c)
+    //     }).then(res => {
+    //         setPosts(prevPosts => {
+    //             return [...new Set([...prevPosts, ...res.data])]
+    //         })
+    //         setHasMore(res.data.length > 0)
+    //         setLoading(false)
+    //     }).catch(e => {
+    //         if (axios.isCancel(e)) return
+    //     })
+    //     return () => cancel()
+    // }, [pageNumber])
+
     return (<>
         <div className="posts-main-div">
             <h1>Posts</h1>
