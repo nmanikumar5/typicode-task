@@ -14,7 +14,7 @@ Next step is to build image
 
 Navigate to folder from terminal and execute below command
 
-### `docker build -f Dockerfile -t typicode-task
+### `docker build -f Dockerfile -t typicode-task .`
 
 once above step is succeeded then image will be created with named (typicode-task).
 
