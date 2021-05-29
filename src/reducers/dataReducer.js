@@ -12,19 +12,31 @@ export const initialState = {
 const dataReducer = (state = initialState, action) => {
   switch (action.type) {
     case ACTIONS.FETCH_POSTS:
-      return {
+      // return {
+      //   ...state,
+      //   posts: action.posts,
+      //   message: action.message,
+      //   isError: action.isError
+      // }
+      return Object.assign({
         ...state,
         posts: action.posts,
         message: action.message,
         isError: action.isError
-      }
+      });
     case ACTIONS.FETCH_ALBUMS:
-      return {
+      // return {
+      //   ...state,
+      //   albums: action.albums,
+      //   message: action.message,
+      //   isError: action.isError
+      // };
+      return Object.assign({
         ...state,
         albums: action.albums,
         message: action.message,
         isError: action.isError
-      };
+      });
     case ACTIONS.FETCH_USERS:
       return {
         ...state,

@@ -32,7 +32,6 @@ width: 100%;
 `;
 
 const Sidebar = () => {
-
     const dataReducer = useSelector(state => state.dataReducer);
 
     const updSidebarData = SidebarData.map(eachItem => {

@@ -12,9 +12,9 @@ export const ACTIONS = {
 const getPosts = async dispatch => {
   const { response } = await getCall(`${API_URL}posts`);
   if (response != null && response.status === API_SUCCESS_CODE) {
-    dispatch(action(ACTIONS.FETCH_POSTS, { posts: response.data, message: 'Posts fetched succesfully', isError: false }))
+    return dispatch(action(ACTIONS.FETCH_POSTS, { posts: response.data, message: 'Posts fetched succesfully', isError: false }))
   } else {
-    dispatch(action(ACTIONS.FETCH_POSTS, { posts: [], isError: true, message: "Could't fetch the Posts" }))
+    return dispatch(action(ACTIONS.FETCH_POSTS, { posts: [], isError: true, message: "Could't fetch the Posts" }))
   }
 }
 

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAlbums } from '../actions';
 import { Table } from './../components/common';
-import isEmpty from 'lodash/isEmpty'
+import isEmpty from 'lodash/isEmpty';
 
 const tdHeads = {
     "Title": {
@@ -25,7 +25,7 @@ const Albums = () => {
             <h1>Albums</h1>
         </div>
         {!isEmpty(albums) && (
-            <div className="home">
+            <div className="home data-table">
                 <Table tdHeads={tdHeads} data={albums} />
             </div>)}
     </>
