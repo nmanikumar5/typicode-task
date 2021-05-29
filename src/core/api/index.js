@@ -1,6 +1,6 @@
-import { action } from "../helpers/actionCreator";
-import { getCall, postCall } from "../helpers/utils";
-import { API_URL, API_SUCCESS_CODE, API_C_SUCCESS_CODE } from './../constants';
+import { action } from "../../utils/actionCreator";
+import { getCall, postCall } from "../../utils/common";
+import { API_URL, API_SUCCESS_CODE, API_C_SUCCESS_CODE } from '../constants';
 
 export const ACTIONS = {
   FETCH_POSTS: "FETCH_POSTS",
@@ -63,7 +63,6 @@ const addPost = async (posts, dispatch) => {
     dispatch(action(ACTIONS.FETCH_POSTS, { posts, isError: true, message: "Could't able to add the record" }))
   }
 }
-
 
 export {
   getPosts,

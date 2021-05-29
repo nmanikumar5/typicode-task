@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import get from "lodash/get";
-import { COLOR_CODES } from "../../constants";
+import { COLOR_CODES } from "../../core/constants";
 
 const StyledTable = styled.table`
   width: 100%;

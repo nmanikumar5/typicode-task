@@ -4,7 +4,7 @@ import { SidebarData } from "./SidebarData";
 import SubMenu from "./SideMenu";
 import { useSelector } from "react-redux";
 import isEmpty from 'lodash/isEmpty';
-import { COLOR_CODES } from '../constants'
+import { COLOR_CODES } from '../core/constants'
 
 const Nav = styled.div`
 background: #15171c;

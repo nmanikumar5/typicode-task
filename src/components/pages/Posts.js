@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useCallback, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getPosts, addPost } from '../actions';
-import { H_LABELS } from '../constants'
-import { Button } from './../components/common';
+import { getPosts, addPost } from '../../core/api';
+import { H_LABELS } from '../../core/constants'
+import { Button } from '../common';
 import isEmpty from 'lodash/isEmpty'
 
 const Posts = () => {

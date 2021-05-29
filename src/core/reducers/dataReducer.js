@@ -1,4 +1,4 @@
-import { ACTIONS } from "../actions";
+import { ACTIONS } from "../api";
 
 export const initialState = {
   posts: [],
@@ -12,31 +12,19 @@ export const initialState = {
 const dataReducer = (state = initialState, action) => {
   switch (action.type) {
     case ACTIONS.FETCH_POSTS:
-      // return {
-      //   ...state,
-      //   posts: action.posts,
-      //   message: action.message,
-      //   isError: action.isError
-      // }
-      return Object.assign({
+      return {
         ...state,
         posts: action.posts,
         message: action.message,
         isError: action.isError
-      });
+      }
     case ACTIONS.FETCH_ALBUMS:
-      // return {
-      //   ...state,
-      //   albums: action.albums,
-      //   message: action.message,
-      //   isError: action.isError
-      // };
-      return Object.assign({
+      return {
         ...state,
         albums: action.albums,
         message: action.message,
         isError: action.isError
-      });
+      };
     case ACTIONS.FETCH_USERS:
       return {
         ...state,

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getUsers } from "../../actions";
-import { Table } from '../../components/common';
+import { getUsers } from "../../../core/api";
+import { Table } from '../../common';
 import isEmpty from 'lodash/isEmpty'
 
 const tdHeads = {

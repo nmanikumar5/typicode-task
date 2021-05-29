@@ -4,14 +4,14 @@ import PageNotFound from "./components/PageNotFound";
 import Message from './components/Message'
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useSelector } from "react-redux";
-import MessageContext from './context/MessageContext';
+import MessageContext from './core/context/MessageContext';
 import isEmpty from 'lodash/isEmpty';
 
-const Home = React.lazy(() => import( /* webpackChunkName: "Home" */ './pages/Home'));
-const Posts = React.lazy(() => import( /* webpackChunkName: "Posts" */ './pages/Posts'));
-const Albums = React.lazy(() => import( /* webpackChunkName: "Albums" */ './pages/Albums'));
-const Users = React.lazy(() => import( /* webpackChunkName: "Users" */ './pages/user-todos/Users'));
-const Todos = React.lazy(() => import( /* webpackChunkName: "Todos" */ './pages/user-todos/Todos'));
+const Home = React.lazy(() => import( /* webpackChunkName: "Home" */ './components/pages/Home'));
+const Posts = React.lazy(() => import( /* webpackChunkName: "Posts" */ './components/pages/Posts'));
+const Albums = React.lazy(() => import( /* webpackChunkName: "Albums" */ './components/pages/Albums'));
+const Users = React.lazy(() => import( /* webpackChunkName: "Users" */ './components/pages/user-todos/Users'));
+const Todos = React.lazy(() => import( /* webpackChunkName: "Todos" */ './components/pages/user-todos/Todos'));
 
 const Routes = () => {
     const { isError, message } = useSelector(state => state.dataReducer);

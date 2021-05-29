@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { COLOR_CODES } from '../../constants'
+import { COLOR_CODES } from '../../core/constants'
 
 const Button = styled.button`
   /* Adapt the colors based on primary prop */
