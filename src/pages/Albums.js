@@ -26,7 +26,7 @@ const Albums = () => {
         </div>
         {!isEmpty(albums) && (
             <div className="home">
-                <Table tdHeads={tdHeads} data={albums.slice(0, 10)} />
+                <Table tdHeads={tdHeads} data={albums} />
             </div>)}
     </>
     );

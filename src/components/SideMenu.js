@@ -5,7 +5,7 @@ import { COLOR_CODES } from '../constants'
 
 const SidebarLink = styled(Link)`
 display: flex;
-color: #e1e9fc;
+color: ${({ disabled }) => (disabled ? COLOR_CODES.disabled : COLOR_CODES.white)};
 justify-content: space-between;
 align-items: center;
 padding: 20px;
@@ -17,9 +17,11 @@ font-size: 18px;
 	background: #252831;
 	cursor: pointer;
 }
-background: ${({ selected }) => (selected ? "#252831" : "transparent")};
+background: ${({ selected }) => (selected ? "#252831" : COLOR_CODES.lightGray)};
 border-left:${({ selected }) => (selected ? `4px solid ${COLOR_CODES.primary}` : "none")};
-pointer-events: ${({ disabled }) => (disabled ? "none" : "auto")}
+pointer-events: ${({ disabled }) => (disabled ? "none" : "auto")};
+margin: 20px 0;
+position: relative;
 `;
 
 const SidebarLabel = styled.span`
@@ -32,13 +34,16 @@ background: ${COLOR_CODES.green};
 border-radius: 0.8em;
 -moz-border-radius: 0.8em;
 -webkit-border-radius: 0.8em;
-color: #ffffff;
+color: ${({ disabled }) => (disabled ? COLOR_CODES.disabled : COLOR_CODES.white)};
 display: inline-block;
 line-height: 1.6em;
 margin-right: 5px;
 text-align: center;
 width: 40px;
 font-size: 14px;
+position: absolute;
+top: -10px;
+right: 10px;
 `;
 
 const DropdownLink = styled(Link)`
@@ -48,14 +53,16 @@ padding-left: 3rem;
 display: flex;
 align-items: center;
 text-decoration: none;
-color: #f5f5f5;
+color: ${({ disabled }) => (disabled ? COLOR_CODES.disabled : COLOR_CODES.white)};
 font-size: 18px;
 &:hover {
 	background: #252831;
 	cursor: pointer;
 }
-background: ${({ selected }) => (selected ? `${COLOR_CODES.primary}` : "transparent")};
-pointer-events: ${({ disabled }) => (disabled ? "none" : "auto")}
+background: ${({ selected }) => (selected ? `${COLOR_CODES.primary}` : COLOR_CODES.lightGray)};
+pointer-events: ${({ disabled }) => (disabled ? "none" : "auto")};
+margin: 20px 0;
+position: relative;
 `;
 
 const SubMenu = ({ item }) => {

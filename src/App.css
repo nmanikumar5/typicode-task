@@ -75,3 +75,8 @@
   background-color: #f2dede;
   border-color: #ebccd1;
 }
+
+.data-table {
+  height: 420px;
+  overflow: overlay;
+}

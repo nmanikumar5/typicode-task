@@ -27,8 +27,8 @@ const Todos = () => {
                 <h1>Todos</h1>
             </div>
             {!isEmpty(todos) &&
-                (<div className="home">
-                    <Table tdHeads={tdHeads} data={todos.slice(0, 10)} />
+                (<div className="home data-table">
+                    <Table tdHeads={tdHeads} data={todos} />
                 </div>)}
         </>
     );

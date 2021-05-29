@@ -12,5 +12,7 @@ export const COLOR_CODES = {
     darkGray: "#282828",
     white: "#FFFFFF",
     black: "#000000",
-    green: "#1f7039"
+    green: "#1f7039",
+    lightGray: "#494949",
+    disabled: "#747474"
 };

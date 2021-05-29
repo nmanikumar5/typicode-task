@@ -30,7 +30,7 @@ const Posts = () => {
         </div>
         {!isEmpty(posts) &&
             (<div className="posts">
-                <Table tdHeads={tdHeads} data={posts.slice(0, 10)} />
+                <Table tdHeads={tdHeads} data={posts} />
             </div>)}
     </>
     );
