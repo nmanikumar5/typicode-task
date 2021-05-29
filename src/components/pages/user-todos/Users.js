@@ -15,7 +15,6 @@ const tdHeads = {
 };
 
 const Users = () => {
-
     const { users } = useSelector(state => state.dataReducer);
     const dispatch = useDispatch();
 

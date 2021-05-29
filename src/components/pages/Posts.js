@@ -15,10 +15,10 @@ const Posts = () => {
     const [pageNumber, setPageNumber] = useState(1)
 
     useEffect(() => {
-        getPosts(dispatch).then(response => {
-            setPosts(response.posts.slice(0, 10))
+        getPosts(dispatch).then(({ posts }) => {
+            setPosts(posts.slice(0, 10))
             setLoading(false);
-            setHasMore(response.posts.length > 10)
+            setHasMore(posts.length > 10)
         });
     }, [dispatch])
 
@@ -38,9 +38,7 @@ const Posts = () => {
         setLoading(true)
         if (!isEmpty(globalPosts) && globalPosts.length !== posts.length) {
             setTimeout(() => {
-                setPosts(prevPosts => {
-                    return [...prevPosts, ...globalPosts.slice(prevPosts.length, pageNumber * 10)]
-                })
+                setPosts(prevPosts => [...prevPosts, ...globalPosts.slice(prevPosts.length, pageNumber * 10)])
                 setLoading(false)
             }, 500)
             setHasMore(true)
@@ -60,11 +58,9 @@ const Posts = () => {
         <div className="post-list data-table">
             <h2>Title</h2>
             {!isEmpty(posts) && posts.map((post, index) => {
-                if (posts.length === index + 1) {
-                    return <li ref={lastPostElementRef} key={post.title}>{post.title}</li>
-                } else {
-                    return <li key={post.title}>{post.title}</li>
-                }
+                return ((posts.length === index + 1) ?
+                    <li ref={lastPostElementRef} key={post.title}>{post.title}</li> :
+                    <li key={post.title}>{post.title}</li>)
             })}
             <div>{loading && 'Loading...'}</div>
         </div>

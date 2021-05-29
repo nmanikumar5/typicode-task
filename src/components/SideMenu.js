@@ -67,7 +67,6 @@ position: relative;
 
 const SubMenu = ({ item }) => {
     const [subnav, setSubnav] = useState(false);
-
     const showSubnav = () => setSubnav(!subnav);
 
     return (
@@ -90,18 +89,16 @@ const SubMenu = ({ item }) => {
                 </div>
             </SidebarLink>
             {subnav &&
-                item.subNav.map((item, index) => {
-                    return (
-                        <DropdownLink
-                            to={item.path}
-                            selected={window.location.pathname === item.path}
-                            key={`drop-down-link-${index}`}
-                            disabled={!item.enabled}>
-                            {item.icon}
-                            <SidebarLabel>{item.title} <DataCount>{item?.count}</DataCount></SidebarLabel>
-                        </DropdownLink>
-                    );
-                })}
+                item.subNav.map((item, index) => (
+                    <DropdownLink
+                        to={item.path}
+                        selected={window.location.pathname === item.path}
+                        key={`drop-down-link-${index}`}
+                        disabled={!item.enabled}>
+                        {item.icon}
+                        <SidebarLabel>{item.title} <DataCount>{item?.count}</DataCount></SidebarLabel>
+                    </DropdownLink>
+                ))}
         </>
     );
 };

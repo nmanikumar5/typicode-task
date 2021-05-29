@@ -6,7 +6,6 @@ const Message = () => {
     const variant = messageMap.isError ? 'danger' : 'success'
 
     return (
-
         <div className={`home alert alert-${variant}`}>
             {messageMap.message}
         </div>

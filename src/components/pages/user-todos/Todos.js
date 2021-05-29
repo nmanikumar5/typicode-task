@@ -13,7 +13,6 @@ const tdHeads = {
 };
 
 const Todos = () => {
-
     const { todos } = useSelector(state => state.dataReducer);
     const dispatch = useDispatch();
 
